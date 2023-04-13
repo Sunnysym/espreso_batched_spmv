@@ -1,0 +1,40 @@
+start on Sun Mar 19 11:18:46 CST 2023
+SLURM_JOB_ID: 6639861
+Basic Information
+Running APP: ./batch_kernel_50 /work1/wangjue/linkehao/espreso/qdx_712/20230310/001/repartition_group_512/process0.txt
+batchMatNum:859
+batchNum:4
+0.0015882934
+85.664430
+0.0079735148
+Running APP: ./batch_kernel_50 /work1/wangjue/linkehao/espreso/qdx_712/20230310/001/repartition_group_512/process1.txt
+batchMatNum:440
+batchNum:4
+0.0018078930
+87.310125
+0.0078292180
+Running APP: ./batch_kernel_50 /work1/wangjue/linkehao/espreso/qdx_712/20230310/001/repartition_group_512/process2.txt
+batchMatNum:512
+batchNum:4
+0.0014557312
+85.072517
+0.0067682818
+Running APP: ./batch_kernel_50 /work1/wangjue/linkehao/espreso/qdx_712/20230310/001/repartition_group_512/process3.txt
+batchMatNum:420
+batchNum:4
+0.0018082002
+87.681562
+0.0077197581
+Running APP: ./batch_kernel_50 /work1/wangjue/linkehao/espreso/qdx_712/20230310/001/repartition_group_512/process4.txt
+batchMatNum:420
+batchNum:4
+0.0018095785
+87.577205
+0.0077131814
+Running APP: ./batch_kernel_50 /work1/wangjue/linkehao/espreso/qdx_712/20230310/001/repartition_group_512/process5.txt
+batchMatNum:423
+batchNum:4
+0.0017947938
+88.274603
+0.0077129282
+end on Sun Mar 19 11:27:43 CST 2023
