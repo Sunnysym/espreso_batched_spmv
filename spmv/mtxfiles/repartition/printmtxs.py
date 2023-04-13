@@ -41,7 +41,7 @@ for i in range(6):
 base = "/public/home/wangjue/shiym/spmv/mtxfiles/repartition/process"
 for i in range(6):
     writefile = base + str(i) + ".txt"
-    fp = open(writefile, "a")  # a+ 如果文件不存在就创建。存在就在文件内容的后面继续追加
+    fp = open(writefile, "a")
     print(len(process[i]),file=fp)
     for j in range(len(process[i])):
         print(process[i][j], file=fp)
