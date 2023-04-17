@@ -3,10 +3,38 @@
 ## batch_kernel
 The SpMV method in batch kernel is batched SpMV. It is used to test the kernel execution performance.
 ### The experiment workflow
-1. Set rocSPARSE path in the Makefile
-2. The command 'make' generates an executable file
+1. Edit the parameter in test_csrspmv_batch.cpp. The variable StreamNum is the number of the stream used for SpMV. The variable batchMatNum is the size of each batch. The IterMax is the run times.
+```C
+int DeviceNum = 1;
+int StreamNum = 4;
+vector<GPUThreadArgument<double>> args;
+...
+int main(int argc, char* argv[])
+{
+    DeviceNum = 1;
+    args.resize(DeviceNum);
+    gpuBoot();
+
+    int IterMax = 102;
+    int MatNumMax = 1024;
+
+    int nnznum = 0;
+    int rownum = 0;
+    int colnum = 0;
+
+    int batchMatNum = 256;
+
+    int Diffmtxnum = 1;
+    int ifmtxs = 1;
+ 
+    vector<string> mtxnames;
+...
+}
+```
+2. Set rocSPARSE path in the Makefile
+3. The command 'make' generates an executable file
 > **make**
-3. At slurm workload manager, modify run.slurm file to run. Here is an example. Set up at 1 node. The command 'sbatch run.slurm' executes the program.
+4. At slurm workload manager, modify run.slurm file to run. Here is an example. Set up at 1 node. The command 'sbatch run.slurm' executes the program.
 ```slurm
 #!/bin/bash
 #SBATCH -J kernel  
@@ -47,10 +75,38 @@ We mainly use the floating point performance of the kernel execution. It is the 
 ## batch_pipeline
 The SpMV method in batch pipeline is batched SpMV. It is used to test the throughput. It is the main component of the Batched SpMV Library.
 ### The experiment workflow
-1. Set rocSPARSE path in the Makefile
-2. The command 'make' generates an executable file
+1. Edit the parameter in test_csrspmv_pipeline.cpp. The variable StreamNum is the number of the stream used for SpMV. The variable batchMatNum is the size of each batch. The IterMax is the run times.
+```C
+int DeviceNum = 1;
+int StreamNum = 4;
+vector<GPUThreadArgument<double>> args;
+...
+int main(int argc, char* argv[])
+{
+    DeviceNum = 1;
+    args.resize(DeviceNum);
+    gpuBoot();
+
+    int IterMax = 102;
+    int MatNumMax = 1024;
+
+    int nnznum = 0;
+    int rownum = 0;
+    int colnum = 0;
+
+    int batchMatNum = 256;
+
+    int Diffmtxnum = 1;
+    int ifmtxs = 1;
+ 
+    vector<string> mtxnames;
+...
+}
+```
+2. Set rocSPARSE path in the Makefile
+3. The command 'make' generates an executable file
 > **make**
-3. At slurm workload manager, modify run.slurm file to run. Here is an example. Set up at 1 node. The command 'sbatch run.slurm' executes the program.
+4. At slurm workload manager, modify run.slurm file to run. Here is an example. Set up at 1 node. The command 'sbatch run.slurm' executes the program.
 ```slurm
 #!/bin/bash
 #SBATCH -J kernel  
