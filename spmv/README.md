@@ -51,7 +51,6 @@ int main(int argc, char* argv[])
 #SBATCH --exclusive 
 
 
-## 需要跑的程序，通常是并行的
 export MASTER_PORT=25875
 export MASTER_ADDR=$(scontrol show hostname ${SLURM_NODELIST} | head -n 1)
 echo start on $(date)
@@ -123,7 +122,6 @@ int main(int argc, char* argv[])
 #SBATCH --exclusive 
 
 
-## 需要跑的程序，通常是并行的
 export MASTER_PORT=25875
 export MASTER_ADDR=$(scontrol show hostname ${SLURM_NODELIST} | head -n 1)
 echo start on $(date)
@@ -166,7 +164,6 @@ The SpMV method in benchmark is CSR-Adaptive in rocSPARSE without optimization s
 #SBATCH --exclusive 
 
 
-## 需要跑的程序，通常是并行的
 export MASTER_PORT=25875
 export MASTER_ADDR=$(scontrol show hostname ${SLURM_NODELIST} | head -n 1)
 echo start on $(date)
