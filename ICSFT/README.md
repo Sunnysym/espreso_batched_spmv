@@ -1,6 +1,5 @@
 # ICSFT
-## batch_kernel
-The SpMV method in batch kernel is batched SpMV. It is used to test the kernel execution performance.
+After the HTFETI two-level domain decomposition, each subdomain has been determined. The number of matrices in each cluster is storaged in dual files. We propose Inter-cluster subdomain fine-tuning (ICSFT) algorithm to adjust the subdomains between clusters, according to the weights assigned to subdomains in the graph. The weights of each subdomain is storaged in pre.csv. The code in read_dual_and_balance is ICSFT algorithm for load balance.
 ### The experiment workflow
 1. Edit the parameter in test_csrspmv_batch.cpp. The variable StreamNum is the number of the stream used for SpMV. The variable batchMatNum is the size of each batch. The IterMax is the run times.
 ```C
