@@ -1,0 +1,83 @@
+
+#include "feti4i_fortran_def.h90"
+
+INTERFACE
+
+  SUBROUTINE FETI4IInit(comm, verbosity) &
+        BIND(c,NAME='FETI4IInit')
+    IMPORT
+    TYPE(MPI_Comm), VALUE :: comm
+    INTEGER(KIND=FETI4IInt), VALUE :: verbosity
+  END SUBROUTINE FETI4IInit
+
+  SUBROUTINE FETI4IFinalize() &
+        BIND(c,NAME='FETI4IFinalize')
+  END SUBROUTINE FETI4IFinalize
+
+  SUBROUTINE FETI4ICreateStiffnessMatrix(matrix, size, l2g, indexBase, type, dofsPerNode, dofsOrdering) &
+        BIND(c,NAME='FETI4ICreateStiffnessMatrix')
+    IMPORT
+    TYPE(C_PTR) :: matrix               ! FETI4IMatrix*     type in C (output)
+    INTEGER(KIND=FETI4IInt), VALUE :: type
+    INTEGER(KIND=FETI4IInt), VALUE :: size
+    INTEGER(KIND=FETI4IInt) :: l2g(*)
+    INTEGER(KIND=FETI4IInt), VALUE :: indexBase
+    INTEGER(KIND=FETI4IInt), VALUE :: type
+    INTEGER(KIND=FETI4IInt), VALUE :: dofsPerNode
+    INTEGER(KIND=FETI4IInt), VALUE :: dofsOrdering
+  END SUBROUTINE FETI4ICreateStiffnessMatrix
+
+  SUBROUTINE FETI4IAddElement(matrix, type, size, nodes, stiffness) &
+        BIND(c,NAME='FETI4IAddElement')
+    IMPORT
+    TYPE(C_PTR), VALUE :: matrix        ! FETI4IMatrix      type in C (input)
+    INTEGER(KIND=FETI4IInt), VALUE :: type
+    INTEGER(KIND=FETI4IInt), VALUE :: size
+    INTEGER(KIND=FETI4IInt) :: nodes(*)
+    REAL(KIND=FETI4IReal) :: stiffness(*)
+  END SUBROUTINE FETI4IAddElement
+
+  SUBROUTINE FETI4ISetDefaultIntegerOptions(options) &
+        BIND(c,NAME='FETI4ISetDefaultIntegerOptions')
+    IMPORT
+    INTEGER(KIND=FETI4IInt) :: options(*)
+  END SUBROUTINE FETI4ISetDefaultIntegerOptions
+
+  SUBROUTINE FETI4ISetDefaultRealOptions(options) &
+        BIND(c,NAME='FETI4ISetDefaultRealOptions')
+    IMPORT
+    REAL(KIND=FETI4IReal) :: options(*)
+  END SUBROUTINE FETI4ISetDefaultRealOptions
+
+  SUBROUTINE FETI4ICreateInstance(instance, matrix, neighbours_size, neighbours, &
+      dirichlet_size, dirichlet_indices, dirichlet_values, &
+      integer_options, real_options) &
+        BIND(c,NAME='FETI4ICreateInstance')
+    IMPORT
+    TYPE(C_PTR) :: instance             ! FETI4IInstance*   type in C (output)
+    TYPE(C_PTR), VALUE :: matrix        ! FETI4IMatrix      type in C (input)
+    INTEGER(KIND=FETI4IMPIInt), VALUE :: neighbours_size
+    INTEGER(KIND=FETI4IMPIInt) :: neighbours(*)
+    INTEGER(KIND=FETI4IInt), VALUE :: dirichlet_size
+    INTEGER(KIND=FETI4IInt) :: dirichlet_indices(*)
+    REAL(KIND=FETI4IReal) :: dirichlet_values(*)
+    INTEGER(KIND=FETI4IInt) :: integer_options(*)
+    REAL(KIND=FETI4IReal) :: real_options(*)
+  END SUBROUTINE FETI4ICreateInstance
+
+  SUBROUTINE FETI4ISolve(instance, rhs, solution) &
+        BIND(c,NAME='FETI4ISolve')
+    IMPORT
+    TYPE(C_PTR), VALUE :: instance      ! FETI4IInstance    type in C (input)
+    REAL(KIND=FETI4IReal) :: rhs(*)
+    REAL(KIND=FETI4IReal) :: solution(*)
+  END SUBROUTINE FETI4ISolve
+
+  SUBROUTINE FETI4IDestroy(ptr) &
+        BIND(c,NAME='FETI4IDestroy')
+    IMPORT
+    TYPE(C_PTR) :: ptr                  ! void*   type in C
+  END SUBROUTINE FETI4IDestroy
+
+END INTERFACE
+
