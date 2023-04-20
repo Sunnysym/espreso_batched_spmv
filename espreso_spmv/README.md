@@ -125,7 +125,7 @@ INPUT {
 }
 ...
 ```
-
+The execution and deployment methods can refer to espreso.
 ## Reference
 
 [espreso](https://github.com/It4innovations/espreso)
