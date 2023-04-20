@@ -38,11 +38,36 @@ It is used to get the parameters in PCIe transfer model.
 1. Edit the datatype and datasize of the input and output data in transfer.cpp.
 2. The command 'make' generates an executable file
 > **make**
-3. 
+3.  At slurm workload manager, modify run.slurm file to run. Here is an example. Set up at 1 node. The command 'sbatch run.slurm' executes the program.
+```slurm
+#!/bin/bash
+#SBATCH -J transfer  
+#SBATCH -p normal 
+#SBATCH -N 1  
+#SBATCH -n 1  
+#SBATCH --gres=dcu:4  
+#SBATCH --ntasks-per-node=1  
+#SBATCH --ntasks-per-socket=1  
+#SBATCH --cpus-per-task=32 
+#SBATCH --mem=90G  
+#SBATCH -o slurmlog/transfer.log 
+#SBATCH -e slurmlog/transfer.log  
+#SBATCH --exclusive 
+
+export MASTER_PORT=25875
+export MASTER_ADDR=$(scontrol show hostname ${SLURM_NODELIST} | head -n 1)
+echo start on $(date)
+echo "SLURM_JOB_ID: $SLURM_JOB_ID" 
+echo "Basic Information"
+APP="./transfer" 
+echo "Running APP: $APP"
+srun $APP
+echo end on $(date)
+```
 ### The execution time 
 Execution time is within seconds.
 ### The expected results
-The output is the matrix files that need to perform sparse matrix-vector multiplication.
+The output is the data transfer time which can be used to get the parameter of PCIe transfer model.
 
 ## PCIe model evaluation
 The code is used to test the PCIe data transfer model accuracy.
