@@ -112,15 +112,6 @@ source ~/espreso_m/build/env/threading.default ${cpu_per_task}
 mpirun --bind-to none -n ${process_sum} espreso -c espreso.ecf 0 0 0
 ```
 
-Strategy args run:  
-
-```shell
-$ mpirun -n 8 espreso -c espreso.ecf 0 0 0   # for default strategy run
-$ mpirun -n 8 espreso -c espreso.ecf 1 0 0   # for coarse load-balance run
-$ mpirun -n 8 espreso -c espreso.ecf 1 1 0   # for fine load-balance run
-$ mpirun -n 8 espreso -c espreso.ecf 1 1 1   # for device run
-```
-
 espreso configure file information：
 
 ```ecf
