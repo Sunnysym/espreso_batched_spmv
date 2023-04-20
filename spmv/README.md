@@ -108,7 +108,7 @@ int main(int argc, char* argv[])
 4. At slurm workload manager, modify run.slurm file to run. Here is an example. Set up at 1 node. The command 'sbatch run.slurm' executes the program.
 ```slurm
 #!/bin/bash
-#SBATCH -J kernel  
+#SBATCH -J pipeline  
 #SBATCH -p normal 
 #SBATCH -N 1  
 #SBATCH -n 1  
@@ -117,8 +117,8 @@ int main(int argc, char* argv[])
 #SBATCH --ntasks-per-socket=1  
 #SBATCH --cpus-per-task=32 
 #SBATCH --mem=90G  
-#SBATCH -o slurmlog/kernel.log 
-#SBATCH -e slurmlog/kernel.log  
+#SBATCH -o slurmlog/pipeline.log 
+#SBATCH -e slurmlog/pipeline.log  
 #SBATCH --exclusive 
 
 
@@ -150,7 +150,7 @@ The SpMV method in benchmark is CSR-Adaptive in rocSPARSE without optimization s
 3. At slurm workload manager, modify run.slurm file to run. Here is an example. Set up at 1 node. The command 'sbatch run.slurm' executes the program.
 ```slurm
 #!/bin/bash
-#SBATCH -J kernel  
+#SBATCH -J benchmark  
 #SBATCH -p normal 
 #SBATCH -N 1  
 #SBATCH -n 1  
@@ -159,8 +159,8 @@ The SpMV method in benchmark is CSR-Adaptive in rocSPARSE without optimization s
 #SBATCH --ntasks-per-socket=1  
 #SBATCH --cpus-per-task=32 
 #SBATCH --mem=90G  
-#SBATCH -o slurmlog/kernel.log 
-#SBATCH -e slurmlog/kernel.log  
+#SBATCH -o slurmlog/benchmark.log 
+#SBATCH -e slurmlog/benchmark.log  
 #SBATCH --exclusive 
 
 
