@@ -23,7 +23,7 @@ Execution time is within seconds.
 The output is the parameter of the Ridge Regression model. For example, Equation 19 in our paper is one of the output.
 
 ## kernelmodel_evaluation
-The code is used to test the kernel execution performance model accuracy.
+The code is used to visualize the kernel execution performance model accuracy.
 ### The experiment workflow
 1. Edit the file path of the result.
 2. The command 'python execution.py' executes the program.
@@ -67,24 +67,24 @@ echo end on $(date)
 ### The execution time 
 Execution time is within seconds.
 ### The expected results
-The output is the data transfer time which can be used to get the parameter of PCIe transfer model.
+The output is the data transfer time which can be used to get the parameter of PCIe transfer model as shown in Table 2.
 
 ## PCIe model evaluation
-The code is used to test the PCIe data transfer model accuracy.
+The code is used to visualize the PCIe data transfer model accuracy.
 ### The experiment workflow
-1. Edit the file path in performance.py
-2. The command 'python performance.py' executes the program.
+1. Edit the file path of the result.
+2. The command 'python datatransfer.py' executes the program.
 ### The execution time 
 Execution time is within seconds.
 ### The expected results
-The output is the figure of the kernel execution performance.
+The output is the figure of the observed and estimated data transfer time, as shown in Figure6 and Figure7 in our paper.
 
 ## execution evaluation 
-The code is used to test the execution performance model accuracy.
+The code is used to visualize the execution performance model accuracy.
 ### The experiment workflow
-1. Edit the file path in throughput.py
-2. The command 'python throughput.py' executes the program.
+1. Edit the file path of the result.
+2. The command 'python wholemodel.py' executes the program.
 ### The execution time 
 Execution time is within seconds.
 ### The expected results
-The output is the figure of the throughput.
+The output is the figure of the observed and estimated SpMV kernel execution time, as shown in Figure9 in our paper.
