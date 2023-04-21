@@ -67,8 +67,11 @@ The execution time of the program depends on the number of matrices and the numb
 
 ### The expected results
 Line 1 output the kernel execution time
+
 Line 2 output the floating point performance of the kernel execution 
+
 Line 3 output the kernel execution time and vector transfer time
+
 We mainly use the floating point performance of the kernel execution. It is the result shown in Figure 4: Performance of SpMV schemes comparing batches and streams.
 
 ## batch_pipeline
@@ -138,7 +141,9 @@ The execution time of the program depends on the number of matrices and the numb
 
 ### The expected results
 Line 1 output the kernel execution time and vector transfer time 
+
 Line 2 output the throughput 
+
 We mainly use the throughput. It is the result shown in Figure 5: Throughput of SpMV schemes comparing batches and streams.
 
 ## benchmark
@@ -180,8 +185,11 @@ The execution time of the program depends on the number of matrices and the numb
 
 ### The expected results
 Line 1 output the kernel execution time
+
 Line 2 output the floating point performance of the kernel execution 
+
 Line 3 output the kernel execution time and vector transfer time
+
 We mainly use the floating point performance of the kernel execution. The base time in Figure 11: Weak scalability results and Figure 12: Strong scalability results can be get through executing the benchmark code.
 
 ## mtxfiles
